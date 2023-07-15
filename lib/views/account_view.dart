@@ -33,73 +33,89 @@ class AccountView extends StatelessWidget {
                 ],
               ),
               spaceV(30.0),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Today Employee Task',
-                    style:
-                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.arrow_back,
-                    color: Color.fromRGBO(77, 186, 128, 1),
-                  ),
-                ],
-              ),
-              spaceV(26.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 60.0,
-                    width: 60.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          width: 3.0),
-                    ),
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/profile.png'),
-                      radius: 30.0,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Md Jahid Hasan',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      spaceV(10.0),
-                      const Text('Dhanmondi, Dhaka'),
-                      const Text('Code : 1205'),
-                      const Text('01700000000'),
-                    ],
-                  ),
-                  const Text('Date : 29-09-2023'),
-                ],
-              ),
-              spaceV(16.0),
-              const Text('Area : Dhaka'),
-              const Text('Select Shop'),
-              spaceV(16.0),
               Expanded(
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (_, index) {
-                    return const ShopCard(
+                child: ListView(
+                  children: [
+              
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Today Employee Task',
+                      style:
+                          TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ),
+                    Icon(
+                      Icons.arrow_back,
+                      color: Color.fromRGBO(77, 186, 128, 1),
+                    ),
+                  ],
+                ),
+                spaceV(26.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 60.0,
+                      width: 60.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 3.0),
+                      ),
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('assets/profile.png'),
+                        radius: 30.0,
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Md Jahid Hasan',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        spaceV(10.0),
+                        const Text('Dhanmondi, Dhaka'),
+                        const Text('Code : 1205'),
+                        const Text('01700000000'),
+                      ],
+                    ),
+                    const Text('Date : 29-09-2023'),
+                  ],
+                ),
+                spaceV(16.0),
+                const Text('Area : Dhaka'),
+                const Text('Select Shop'),
+                spaceV(16.0),
+                Expanded(
+                    child: Column(
+                  children: [
+                    for(int i =0; i<10; i++)
+                    const ShopCard(
                       name: 'Adi Store',
                       address: 'Dhanmondi',
                       userCode: 23456,
                       isActive: false,
-                    );
-                  },
+                    )
+                  ],
+                )
+                    // ListView.builder(
+                    //   itemCount: 10,
+                    //   itemBuilder: (_, index) {
+                    //     return const ShopCard(
+                    //       name: 'Adi Store',
+                    //       address: 'Dhanmondi',
+                    //       userCode: 23456,
+                    //       isActive: false,
+                    //     );
+                    //   },
+                    // ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -151,11 +167,11 @@ class ShopCard extends StatelessWidget {
                   if (states.contains(MaterialState.disabled)) {
                     return Colors.orange.withOpacity(.32);
                   }
-                  return Theme.of(context).colorScheme.onPrimary;
+                  return Colors.white;
                 }),
                 value: false,
                 onChanged: (isChange) {},
-                // checkColor: Theme.of(context).colorScheme.onPrimary,
+                // checkColor: Colors.white,
                 activeColor: Colors.red,
               ),
             ),
@@ -163,7 +179,7 @@ class ShopCard extends StatelessWidget {
               height: 28.0 * 2,
               width: 28.0 * 2,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15.0),
               ),
               // color: Theme.of(context).colorScheme.primary,
@@ -200,7 +216,7 @@ class ShopCard extends StatelessWidget {
                   width: 75.0,
                   height: 25.0,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(3.0),
                   ),
                   child: InkWell(
@@ -210,6 +226,7 @@ class ShopCard extends StatelessWidget {
                         "view",
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
@@ -220,7 +237,7 @@ class ShopCard extends StatelessWidget {
                   width: 75.0,
                   height: 25.0,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(3.0),
                   ),
                   child: InkWell(
@@ -229,7 +246,9 @@ class ShopCard extends StatelessWidget {
                       child: Text(
                         "View info",
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary),
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
