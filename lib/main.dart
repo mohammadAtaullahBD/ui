@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       //   backgroundColor: Theme.of(context).primaryColor,
       //   title: const Text('Home Page'),
       // ),
-      body: MainView(),
+      body: LoginView(),
     );
   }
 }
